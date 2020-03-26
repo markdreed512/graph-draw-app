@@ -18,10 +18,14 @@ connection.once('open', () => {
 })
 
 const usersRouter = require('./routes/users')
-const imagesRouter = require('./routes/images')
+// const imagesRouter = require('./routes/images')
+app.get('/', (req, res)=>{
+    res.send("test")
+})
 app.use('/users', usersRouter)
 // app.use('/images', imagesRouter)
 
 app.listen(port, ()=>{
     console.log(`Server is running on port: ${port}`)
 })
+
