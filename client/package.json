@@ -1,24 +1,20 @@
 {
-  "name": "graph-app",
+  "name": "client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "concurrently": "^5.1.0",
-    "express": "^4.17.1",
-    "mongoose": "^5.9.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.0"
+    "react-scripts": "3.4.1"
   },
   "scripts": {
-    "client-install":"npm install --prefix client",
-    "start": "node server.js",
-    "server": "nodemon server.js",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,7 +31,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "nodemon": "^2.0.2"
-  }
+  "proxy": "http://localhost:5000"
 }
