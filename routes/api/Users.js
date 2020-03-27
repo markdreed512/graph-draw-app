@@ -17,7 +17,7 @@ router.post('/add', (req,res) => {
     })
     newUser.save()
         .then(user => {
-            res.json(user)
+            res.send("hi there!")
         })
 })
 
