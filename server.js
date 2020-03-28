@@ -1,10 +1,10 @@
 const express = require('express')
 const mongoose = require('mongoose')
-
+const cors = require('cors')
 const users = require('./routes/api/users')
 
 const app = express()
-
+app.use(cors())
 app.use(express.json())
 
 const uri = 'mongodb+srv://markdreed512:SilkBeer@cluster0-vtv3p.mongodb.net/test?retryWrites=true&w=majority'

@@ -59,7 +59,7 @@ const LoginModal = () => {
         console.log("post req to api")
       
         let data = {
-            username: "Mark",
+            username: "Mark2",
             password1: "pword",
             password2: "pword"
         }
@@ -69,9 +69,15 @@ const LoginModal = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: {test: 1234}
+            body: JSON.stringify(data)
         }
-        fetch('/createUser', options)
+        fetch('http://localhost:5000/api/Users/add', options)
+            .then((response)=>{
+                return response.json()
+            })
+            .then((data)=>{
+                console.log(data)
+            })
     
     }
     return (

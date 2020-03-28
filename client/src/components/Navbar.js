@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-// import logo from '../assets/images/logo.png'
+import logo from '../Assets/images/logo.png'
 import LoginModal from './LoginModal'
 function Navbar(){
     const Header = styled.div`
@@ -17,19 +17,19 @@ function Navbar(){
         display: inline;
         padding-right: 20px;
     `
-    // const Logo = styled.img`
-    //     width: 25px;
-    //     float: left;
-    //     padding-top: 15px;
-    //     padding-left: 15px;
-    // `
+    const Logo = styled.img`
+        width: 25px;
+        float: left;
+        padding-top: 15px;
+        padding-left: 15px;
+    `
     const ClearFloat= styled.div`
         clear: both
     `
     
     return (
         <Header>
-            {/* <Logo src={logo} alt=""/> */}
+            <Logo src={logo} alt=""/>
             
             <NavList>
                 <Li><LoginModal /></Li>
