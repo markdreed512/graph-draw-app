@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import Navbar from './components/Navbar'
+import Grid from './components/Grid'
+import SizingButtons from './components/SizingButtons'
+import LoginModal from './components/LoginModal'
 
-function App() {
+const App = () =>{
+  const [cellSize, setCellSize] = useState(100)
+  let rows = 10
+  let width = 1000
+  const [columns, setColumns] = useState(10)
+  const handleClick = (e) => {
+    if(e.target.id === 'increase-btn'){
+      if(columns < 20){
+        setColumns(columns - 1)
+
+        setCellSize(width/columns)
+
+      }
+      
+    }else if(e.target.id === 'decrease-btn'){
+      if (columns > 4){
+        setColumns(columns + 1)
+
+        setCellSize(width/columns)
+
+      }
+    }
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div onClick = {handleClick}>
+      
+      <Navbar />
+      <SizingButtons />
+      <Grid size = {cellSize} rows = {rows} cols = {columns}/>
+      <LoginModal/>
     </div>
-  );
+  )
 }
 
 export default App;
+//How to upload files to the server using JavaScript: https://flaviocopes.com/file-upload-using-ajax/
