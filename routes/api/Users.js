@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-
+const bcrypt = require('bcrypt')
 const User = require('../../models/User')
 
 router.get('/', (req, res) => {
@@ -11,18 +11,22 @@ router.get('/', (req, res) => {
         })
 })
 
-router.post('/add', (req,res) => {
-    const newUser = new User({
-        username: req.body.username,
-        password1: req.body.password1,
-        password2: req.body.password2
-    })
-    
-    console.log(req.body.password1, req.body.password2)
-    newUser.save()
+router.post('/add', async (req,res) => {
+    try{
+        const hashedPassword1 = await bcrypt.hash(req.body.password1, 10)
+        const hashedPassword2 = await bcrypt.hash(req.body.password2, 10)
+        const newUser = new User({
+            username: req.body.username,
+            password1: hashedPassword1,
+            password2: hashedPassword2
+        })
+        newUser.save()
         .then(user => {
             res.send("hi there!")
         })
+    } catch{
+        res.status(500).send()
+    }  
 })
 
 router.delete('/:id', (req, res)=>{
