@@ -13,8 +13,12 @@ router.get('/', (req, res) => {
 
 router.post('/add', (req,res) => {
     const newUser = new User({
-        username: req.body.username
+        username: req.body.username,
+        password1: req.body.password1,
+        password2: req.body.password2
     })
+    
+    console.log(req.body.password1, req.body.password2)
     newUser.save()
         .then(user => {
             res.send("hi there!")

@@ -5,8 +5,8 @@ import styled from 'styled-components'
 const LoginModal = (props) => {
     const [visible, setVisible] = useState("hidden")
     const [username, setUsername] = useState("")
-    const [pasword1, setPassword1] = useState("")
-    const [pasword2, setPassword2] = useState("")
+    const [password1, setPassword1] = useState("")
+    const [password2, setPassword2] = useState("")
 //     const Modal = styled.div`
 //     width: 500px;
 //     height: 400px;
@@ -24,28 +24,28 @@ const LoginModal = (props) => {
 //     box-shadow: 2px 2px 5px grey;
 //     visibility: ${visible}
 // `
-//     const Input = styled.input`
-//     display: block;
-//     font-size: 20px;
-//     background-color: rgba(255,255,255, .6);
-//     margin: 30px auto;
-//     padding: 10px;
-//     color: black;
-//     border-radius: 4px;
-// `
-//     const Button = styled.input`
-//     display: block;
-//     font-size: 20px;
-//     background-color: rgba(0,255,255);
-//     margin: 30px auto;
-// `
-//     const Label = styled.label`
-//         display: block;
-//         margin-top: 40px ;
-// `
-//     const Div = styled.div`
-//     text-align: center;
-// `
+    const Input = styled.input`
+    display: block;
+    font-size: 20px;
+    background-color: rgba(255,255,255, .6);
+    margin: 30px auto;
+    padding: 10px;
+    color: black;
+    border-radius: 4px;
+`
+    const Button = styled.input`
+    display: block;
+    font-size: 20px;
+    background-color: rgba(0,255,255);
+    margin: 30px auto;
+`
+    const Label = styled.label`
+        display: block;
+        margin-top: 40px ;
+`
+    const Div = styled.div`
+    text-align: center;
+`
 
     const openLoginModal = (e) => {
         if (e.target.id === "user-icon") {
@@ -61,25 +61,26 @@ const LoginModal = (props) => {
    
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(username)
-        // let data = {
-        //     "username": username
-        // }
-        // const options = {
-        //     method: 'POST'
-        //     ,
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body:JSON.stringify(data)
-        // }
-        // fetch('http://localhost:5000/api/Users/add', options)
-        //     .then((response)=>{
-        //         return response.json()
-        //     })
-        //     .then((data)=>{
-        //         console.log(data)
-        //     })
+        let data = {
+            "username": username,
+            "password1": password1,
+            "password2": password2
+        }
+        const options = {
+            method: 'POST'
+            ,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify(data)
+        }
+        fetch('http://localhost:5000/api/Users/add', options)
+            .then((response)=>{
+                return response.json()
+            })
+            .then((data)=>{
+                console.log(data)
+            })
     
     }
     
@@ -110,18 +111,20 @@ const LoginModal = (props) => {
                 {/* <Div> */}
                 <div>
                     <form onSubmit = {handleSubmit} action="submit">
-                        <label >Sign Up</label>
+                        <label >Sign Up</label><br/>
                         <input onChange={(e)=> setUsername(e.target.value)} 
                                value = {username}
                                type="text" 
                                required 
-                               placeholder="username"/>
-                        {/* <Input onChange={(e)=> setPassword1(e.target.value)} 
+                               placeholder="username"/><br/>
+                        <input onChange={(e)=> setPassword1(e.target.value)} 
+                               value = {password1}
                                type="password" 
-                               placeholder="password" />
-                        <Input onChange={(e)=> setPassword2(e.target.value)} 
+                               placeholder="password" /><br/>
+                        <input onChange={(e)=> setPassword2(e.target.value)} 
+                               value = {password2}
                                type="password" 
-                               placeholder="password" /> */}
+                               placeholder="password" /><br/>
                         <input type="submit" value = "Submit" />
                     </form>
                    
