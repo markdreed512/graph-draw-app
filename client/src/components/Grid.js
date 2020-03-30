@@ -11,11 +11,8 @@ background-repeat: no-repeat;
 `
 
 function Grid(props) {
-    let rows = props.rows
-    let cols = props.cols
-
-    const cellsArr = Array(cols).fill("dummyData")
-    const rowsArr = Array(rows).fill("dummyData")
+    const cellsArr = Array(props.cols).fill("dummyData")
+    const rowsArr = Array(props.rows).fill("dummyData")
     return (<Table>
         <tbody>
             {rowsArr.map((each, i) => {

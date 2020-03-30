@@ -11,7 +11,12 @@ function Cell(props) {
         setOpaque(!opaque)
     }
     return (
-        <td style= {myStyle} className = {opaque? "opaque" : "transparent"} onClick = { handleClick }></td>
+        <td 
+            style= {myStyle} 
+            className = {opaque? "opaque" : "transparent"} 
+            onClick = { handleClick }
+        >
+        </td>
     )
 }
 

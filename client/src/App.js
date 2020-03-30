@@ -9,6 +9,7 @@ const App = () =>{
   let rows = 10
   let width = 1000
   const [columns, setColumns] = useState(10)
+ 
   const handleClick = (e) => {
     if(e.target.id === 'increase-btn'){
       if(columns < 20){
@@ -27,13 +28,13 @@ const App = () =>{
       }
     }
   }
+
   return (
     <div onClick = {handleClick}>
-      
       <Navbar />
       <SizingButtons />
       <Grid size = {cellSize} rows = {rows} cols = {columns}/>
-      <LoginModal/>
+      <LoginModal />
     </div>
   )
 }
