@@ -20,13 +20,13 @@ const LoginModal = (props) => {
         visibility: `${visible}`
     }
     const toggleForm= (e) => {
-        setDisplayLogin(false)
-        console.log("hi: " + displayLogin)
+        setDisplayLogin(!displayLogin)
+        
     }
     return (
         <i id="user-icon" className="fa fa-user" onClick={openLoginModal}>
             <div id="modal" style = {modalStyle}>
-                {displayLogin? <LogInForm onClick={toggleForm}/> : <SignUpForm />}           
+                {displayLogin? <LogInForm toggleForm={toggleForm}/> : <SignUpForm toggleForm={toggleForm}/>}           
             </div>
         </i>
     )

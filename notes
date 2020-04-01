@@ -4,5 +4,5 @@
 
 Debugging steps:
     1. define the problem
-        -clicking button on child component does not call parent function
+        -on submit sign up form, makes post request but doesn't toggle back to login view
     2. formulate the question

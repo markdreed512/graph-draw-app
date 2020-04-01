@@ -16,8 +16,8 @@ export default function LoginForm(props) {
             })
     }
     return (
-        <div onClick={props.onClick}>
-            <p>create an account <button>here</button></p>
+        <div>
+            <p>create an account <button onClick={props.toggleForm}>here</button></p>
             <form onSubmit={handleSubmit} action="submit">
                 <label >Log In</label>
                 <input className="input"

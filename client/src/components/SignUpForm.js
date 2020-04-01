@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function SignUpForm() {
+export default function SignUpForm(props) {
     const [username, setUsername] = useState("")
     const [password1, setPassword1] = useState("")
     const [password2, setPassword2] = useState("")
@@ -24,6 +24,7 @@ export default function SignUpForm() {
                 setPassword1("")
                 setPassword2("")
             })
+
     }
     return (
         <form onSubmit = {handleSubmit} action="submit">
@@ -44,7 +45,7 @@ export default function SignUpForm() {
                             value = {password2}
                             type="password" 
                             placeholder="password" />
-                    <input className = "button" type="submit" value = "Submit" />
+                    <input className = "button" type="submit" value = "Submit" onClick={props.toggleForm} />
                 </form>
     )
 }
