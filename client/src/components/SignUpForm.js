@@ -23,6 +23,7 @@ export default function SignUpForm(props) {
                 setUsername("")
                 setPassword1("")
                 setPassword2("")
+                props.toggleForm()
             })
 
     }
@@ -45,7 +46,7 @@ export default function SignUpForm(props) {
                             value = {password2}
                             type="password" 
                             placeholder="password" />
-                    <input className = "button" type="submit" value = "Submit" onClick={props.toggleForm} />
+                    <input className = "button" type="submit" value = "Submit"  />
                 </form>
     )
 }
