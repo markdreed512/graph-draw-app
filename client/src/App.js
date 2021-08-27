@@ -3,13 +3,14 @@ import Navbar from './components/Navbar'
 import Grid from './components/Grid'
 import SizingButtons from './components/SizingButtons'
 import LoginModal from './components/LoginModal'
-
+import SelectColorForm from './components/SelectColorForm';
+import GridColorContext from './components/GridColorContext';
 const App = () =>{
   const [cellSize, setCellSize] = useState(100)
   let rows = 10
   let width = 1000
   const [columns, setColumns] = useState(10)
- 
+  const [ gridColor, setGridColor ]= useState('pink')
   const handleClick = (e) => {
     if(e.target.id === 'increase-btn'){
       if(columns < 20){
@@ -33,7 +34,10 @@ const App = () =>{
     <div onClick = {handleClick}>
       <Navbar />
       <SizingButtons />
-      <Grid size = {cellSize} rows = {rows} cols = {columns}/>
+      <GridColorContext.Provider value={[ gridColor, setGridColor ]}>
+        <SelectColorForm />
+        <Grid size = {cellSize} rows = {rows} cols = {columns}/>
+      </GridColorContext.Provider>
       <LoginModal />
     </div>
   )
